@@ -32,7 +32,7 @@ const Task = () => {
         tasks={tasksState}
         handleRemoveTask={handleRemoveTask}
         showAll={tasksState.showAll}
-        handleUpdateTaskStatus={updateTaskStatus}
+        handleUpdateTaskStatus={handleUpdateTaskStatus}
       />
       <TaskInput
         newTask={newTask}

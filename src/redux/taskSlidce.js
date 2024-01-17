@@ -13,16 +13,16 @@ const taskSlice = createSlice({
         toggleShowAll: state => {
             state.showAll = !state.showAll;
         },
-        updateTaskStatus : (state , action) => {
-            const {taskId , status} = action.payload;
+        updateTaskStatus: (state, action) => {
+            const { taskId, status } = action.payload;
             const taskToUpdate = state.tasks.find(task => task.id === taskId);
 
-            if(taskToUpdate) {
+            if (taskToUpdate) {
                 taskToUpdate.status = status;
             }
         }
     }
 })
 
-export const { addTask, removeTask , toggleShowAll , updateTaskStatus} = taskSlice.actions;
+export const { addTask, removeTask, toggleShowAll, updateTaskStatus } = taskSlice.actions;
 export default taskSlice.reducer;
