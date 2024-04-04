@@ -13,6 +13,9 @@ const StatusDisplay = ({ status }) => {
       case "not started":
         color = "bg-red-200";
         return color;
+      case "delay":
+        color = "bg-orange-500	";
+        return color;
       default:
         color = "bg-slate-700";
     }

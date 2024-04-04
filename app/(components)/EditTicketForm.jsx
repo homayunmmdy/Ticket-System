@@ -218,6 +218,7 @@ const EditTicketForm = ({ ticket }) => {
         >
           <option value="not started">Not Started</option>
           <option value="started">Started</option>
+          <option value="delay">delay</option>
           <option value="done">Done</option>
         </select>
         <div className="flex justify-center">
