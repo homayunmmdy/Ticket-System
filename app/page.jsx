@@ -1,76 +1,47 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import TicketCard from "@/app/(components)/TicketCard";
-import axios from "axios"
-
-
+import axios from "axios";
 
 const Dashboard = () => {
   const [tickets, setTickets] = useState([]);
   const [filteredTickets, setFilteredTickets] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [websites, setwebsites] = useState();
-
+  const [websites, setWebsites] = useState([]);
 
   useEffect(() => {
-    const fetchTickets = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get(`/api/Tickets`);
-        setTickets(response.data.tickets);
-        setFilteredTickets(response.data.tickets); // Initially set filtered tickets to all tickets
+        const ticketResponse = await axios.get(`/api/Tickets`);
+        setTickets(ticketResponse.data.tickets);
+        setFilteredTickets(ticketResponse.data.tickets);
+
+        const categoryResponse = await axios.get(`/api/Category`);
+        setCategories(categoryResponse.data.categories);
+
+        const websiteResponse = await axios.get(`/api/Website`);
+        setWebsites(websiteResponse.data.websites);
       } catch (error) {
-        console.error("Error fetching tickets:", error);
+        console.error("Error fetching data:", error);
       }
     };
 
-    fetchTickets();
-  }, []);
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await axios.get(`/api/Category`);
-        setCategories(response.data.categories);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
-
-  useEffect(() => {
-    const fetchWebsites = async () => {
-      try {
-        const response = await axios.get(`/api/Website`);
-        setwebsites(response.data.websites);
-      } catch (error) {
-        console.error("Error fetching websites:", error);
-      }
-    };
-
-    fetchWebsites();
+    fetchData();
   }, []);
 
   const handleFilterChange = (filterType, value) => {
     let filtered;
     if (filterType === "status") {
-      if (value === "all") {
-        filtered = tickets;
-      } else {
-        filtered = tickets.filter((ticket) => ticket.status === value);
-      }
+      filtered = value === "all" ? tickets : tickets.filter((ticket) => ticket.status === value);
     } else if (filterType === "priority") {
       filtered = tickets.filter((ticket) => ticket.priority === parseInt(value));
     } else if (filterType === "category") {
-      filtered = tickets.filter((ticket) => ticket.category === value);
-    }else if (filterType === "website") {
-      filtered = tickets.filter((ticket) => ticket.website === value);
+      filtered = value === "all" ? tickets : tickets.filter((ticket) => ticket.category === value);
+    } else if (filterType === "website") {
+      filtered = value === "all" ? tickets : tickets.filter((ticket) => ticket.website === value);
     }
     setFilteredTickets(filtered);
   };
-
 
   return (
     <div className="p-5">
@@ -83,10 +54,10 @@ const Dashboard = () => {
               onChange={(e) => handleFilterChange("status", e.target.value)}
             >
               <option value="all">All</option>
-              <option value="not started">not started</option>
-              <option value="started">started</option>
-              <option value="delay">delay</option>
-              <option value="done">done</option>
+              <option value="not started">Not Started</option>
+              <option value="started">Started</option>
+              <option value="delay">Delay</option>
+              <option value="done">Done</option>
             </select>
           </div>
           <div className="flex">
@@ -95,11 +66,11 @@ const Dashboard = () => {
               className="p-2 border border-gray-300 rounded"
               onChange={(e) => handleFilterChange("priority", e.target.value)}
             >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+              {[1, 2, 3, 4, 5].map((priority) => (
+                <option key={priority} value={priority}>
+                  {priority}
+                </option>
+              ))}
             </select>
           </div>
           <div className="flex">
@@ -109,14 +80,13 @@ const Dashboard = () => {
               onChange={(e) => handleFilterChange("category", e.target.value)}
             >
               <option value="all">All</option>
-              {categories?.map((category) => (
-            <option key={category._id} value={category.name}>
-              {category.name}
-            </option>
-          ))}
+              {categories.map((category) => (
+                <option key={category._id} value={category.name}>
+                  {category.name}
+                </option>
+              ))}
             </select>
           </div>
-
           <div className="flex">
             <span className="mr-2">Filter by Website:</span>
             <select
@@ -124,16 +94,15 @@ const Dashboard = () => {
               onChange={(e) => handleFilterChange("website", e.target.value)}
             >
               <option value="all">All</option>
-              {websites?.map((website) => (
-            <option key={website._id} value={website.name}>
-              {website.name}
-            </option>
-          ))}
+              {websites.map((website) => (
+                <option key={website._id} value={website.name}>
+                  {website.name}
+                </option>
+              ))}
             </select>
           </div>
-
         </div>
-        <h1 className="text-3xl text-center">Avaliable Tickets {filteredTickets.length}</h1>
+        <h1 className="text-3xl text-center">Available Tickets {filteredTickets.length}</h1>
         <div className="lg:grid grid-cols-2 xl:grid-cols-4 ">
           {filteredTickets.map((filteredTicket, index) => (
             <TicketCard
