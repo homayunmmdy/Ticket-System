@@ -28,7 +28,7 @@ const TicketCard = ({ ticket }) => {
       <div className="flex mb-3">
         <PriorityDisplay priority={ticket.priority} />
         <div className="ml-auto">
-          <DeleteBlock id={ticket._id} />
+          <DeleteBlock path="Tickets" id={ticket._id} />
         </div>
       </div>
       <Link href={`/TicketPage/${ticket._id}`} style={{ display: "contents" }}>

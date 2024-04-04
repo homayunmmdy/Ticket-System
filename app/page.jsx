@@ -1,9 +1,10 @@
 import React from "react";
-import TicketCard from "./(components)/TicketCard";
+import TicketCard from "@/app/(components)/TicketCard";
 
 const getTickets = async () => {
+  const API_URL = process.env.API_URL;
   try {
-    const res = await fetch("https://ticket-system-beta.vercel.app/api/Tickets", {
+    const res = await fetch(`${API_URL}/api/Tickets`, {
       cache: "no-store",
     });
 
