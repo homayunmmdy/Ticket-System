@@ -62,8 +62,8 @@ const EditTicketForm = ({ ticket }) => {
       }
     }
 
-    router.refresh();
     router.push("/");
+    router.refresh();
   };
 
   const [categories, setCategories] = useState();
@@ -119,7 +119,6 @@ const EditTicketForm = ({ ticket }) => {
           id="description"
           name="description"
           onChange={handleChange}
-          required={true}
           value={formData.description}
           rows="5"
           className="textarea textarea-primary"
