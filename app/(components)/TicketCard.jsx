@@ -24,7 +24,7 @@ const TicketCard = ({ ticket }) => {
   const createdDateTime = formatTimestamp(ticket.createdAt);
 
   return (
-    <div className="flex flex-col hover:bg-card-hover bg-card rounded-md shadow-lg p-3 m-2">
+    <div className="card flex flex-col hover:bg-card-hover bg-card rounded-md shadow-xl p-5 m-2">
       <div className="flex mb-3">
         <PriorityDisplay priority={ticket.priority} />
         <div className="ml-auto">

@@ -21,6 +21,7 @@ const EditTicketForm = ({ ticket }) => {
     startingTicketData["progress"] = ticket.progress;
     startingTicketData["status"] = ticket.status;
     startingTicketData["category"] = ticket.category;
+    startingTicketData["website"] = ticket.website;
   }
 
   const [formData, setFormData] = useState(startingTicketData);
@@ -80,14 +81,29 @@ const EditTicketForm = ({ ticket }) => {
     fetchCategories();
   }, []);
 
+  const [websites, setwebsites] = useState();
+
+  useEffect(() => {
+    const fetchWebsites = async () => {
+      try {
+        const response = await axios.get(`/api/Website`);
+        setwebsites(response.data.websites);
+      } catch (error) {
+        console.error("Error fetching websites:", error);
+      }
+    };
+
+    fetchWebsites();
+  }, []);
+
   return (
     <div className=" flex justify-center">
       <form
         onSubmit={handleSubmit}
         method="post"
-        className="flex flex-col gap-3 w-1/2"
+        className="flex flex-col gap-3 w-[90%] md:w-[70%]"
       >
-        <h3>{EDITMODE ? "Update Your Ticket" : "Create New Ticket"}</h3>
+        <h3 className="text-center font-semibold text-2xl">{EDITMODE ? "Update Your Ticket" : "Create New Ticket"}</h3>
         <label>Title</label>
         <input
           id="title"
@@ -96,6 +112,7 @@ const EditTicketForm = ({ ticket }) => {
           onChange={handleChange}
           required={true}
           value={formData.title}
+          className="input input-bordered input-primary"
         />
         <label>Description</label>
         <textarea
@@ -105,12 +122,14 @@ const EditTicketForm = ({ ticket }) => {
           required={true}
           value={formData.description}
           rows="5"
+          className="textarea textarea-primary"
         />
         <label>Category</label>
         <select
           name="category"
           value={formData.category}
           onChange={handleChange}
+          className="select select-primary w-full"
         >
           {categories?.map((category) => (
             <option key={category._id} value={category.name}>
@@ -118,9 +137,21 @@ const EditTicketForm = ({ ticket }) => {
             </option>
           ))}
         </select>
-
+        <label>website</label>
+        <select
+          className="select select-primary w-full"
+          name="category"
+          value={formData.website}
+          onChange={handleChange}
+        >
+          {websites?.map((website) => (
+            <option key={website._id} value={website.name}>
+              {website.name}
+            </option>
+          ))}
+        </select>
         <label>Priority</label>
-        <div>
+        <div className="flex gap-2">
           <input
             id="priority-1"
             name="priority"
@@ -128,6 +159,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={1}
             checked={formData.priority == 1}
+            className="radio radio-primary"
           />
           <label>1</label>
           <input
@@ -137,6 +169,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={2}
             checked={formData.priority == 2}
+            className="radio radio-primary"
           />
           <label>2</label>
           <input
@@ -146,6 +179,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={3}
             checked={formData.priority == 3}
+            className="radio radio-primary"
           />
           <label>3</label>
           <input
@@ -155,6 +189,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={4}
             checked={formData.priority == 4}
+            className="radio radio-primary"
           />
           <label>4</label>
           <input
@@ -164,6 +199,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={5}
             checked={formData.priority == 5}
+            className="radio radio-primary"
           />
           <label>5</label>
         </div>
@@ -176,18 +212,22 @@ const EditTicketForm = ({ ticket }) => {
           min="0"
           max="100"
           onChange={handleChange}
-        />
+          className="bg-blue-600 h-2.5 rounded-full" />
         <label>Status</label>
-        <select name="status" value={formData.status} onChange={handleChange}>
+        <select name="status" value={formData.status} onChange={handleChange}
+          className="select select-primary w-full"
+        >
           <option value="not started">Not Started</option>
           <option value="started">Started</option>
           <option value="done">Done</option>
         </select>
-        <input
-          type="submit"
-          className="btn max-w-xs"
-          value={EDITMODE ? "Update Ticket" : "Create Ticket"}
-        />
+        <div className="flex justify-center">
+          <input
+            type="submit"
+            className="btn max-w-xs btn-outline btn-primary"
+            value={EDITMODE ? "Update Ticket" : "Create Ticket"}
+          />
+        </div>
       </form>
     </div>
   );
