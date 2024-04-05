@@ -58,10 +58,10 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="p-5">
+    <div className="p-2 md:p-5">
       <div>
-        <div className="flex justify-between mb-4">
-          <div className="flex">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3   xl:grid-cols-4 gap-4 mb-4">
+          <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Status:</span>
             <select
               className="p-2 border border-gray-300 rounded"
@@ -74,7 +74,7 @@ const Dashboard = () => {
               <option value="done">Done</option>
             </select>
           </div>
-          <div className="flex">
+          <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Priority:</span>
             <select
               className="p-2 border border-gray-300 rounded"
@@ -87,7 +87,7 @@ const Dashboard = () => {
               ))}
             </select>
           </div>
-          <div className="flex">
+          <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Category:</span>
             <select
               className="p-2 border border-gray-300 rounded"
@@ -101,7 +101,7 @@ const Dashboard = () => {
               ))}
             </select>
           </div>
-          <div className="flex">
+          <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Website:</span>
             <select
               className="p-2 border border-gray-300 rounded"
