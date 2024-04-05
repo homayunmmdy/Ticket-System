@@ -9,6 +9,8 @@ const Dashboard = () => {
   const [categories, setCategories] = useState([]);
   const [websites, setWebsites] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize] = useState(12);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +18,7 @@ const Dashboard = () => {
         setLoading(true)
         const ticketResponse = await axios.get(`/api/Tickets`);
         setTickets(ticketResponse.data.tickets);
-        setFilteredTickets(ticketResponse.data.tickets);
+        setFilteredTickets(ticketResponse.data.tickets.slice(0, pageSize));
 
         const categoryResponse = await axios.get(`/api/Category`);
         setCategories(categoryResponse.data.categories);
@@ -30,7 +32,7 @@ const Dashboard = () => {
     };
 
     fetchData();
-  }, []);
+  }, [pageSize]);
 
   const handleFilterChange = (filterType, value) => {
     setLoading(true)
@@ -44,8 +46,15 @@ const Dashboard = () => {
     } else if (filterType === "website") {
       filtered = value === "all" ? tickets : tickets.filter((ticket) => ticket.website === value);
     }
-    setFilteredTickets(filtered);
-    setLoading(false)
+    setFilteredTickets(filtered.slice(0, pageSize));
+    setLoading(false);
+  };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    const startIndex = (pageNumber - 1) * pageSize;
+    const endIndex = pageNumber * pageSize;
+    setFilteredTickets(tickets.slice(startIndex, endIndex));
   };
 
   return (
@@ -110,7 +119,6 @@ const Dashboard = () => {
         {loading ? <h1>Loading</h1> :
           (
             <>
-              <h1 className="text-3xl text-center">Available Tickets {filteredTickets.length}</h1>
               <div className="lg:grid grid-cols-2 xl:grid-cols-4 ">
                 {filteredTickets.map((filteredTicket, index) => (
                   <TicketCard
@@ -120,6 +128,18 @@ const Dashboard = () => {
                   />
                 ))}
               </div>
+              {filteredTickets.length < "12" ? null : <div className="flex justify-center mt-4">
+                {Array.from({ length: Math.ceil(tickets.length / pageSize) }, (_, i) => (
+                  <button
+                    key={i}
+                    className={`mx-1 p-2 border ${currentPage === i + 1 ? "bg-blue-500 text-white" : "border-gray-300"
+                      } rounded`}
+                    onClick={() => handlePageChange(i + 1)}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+              </div>}
             </>
           )
         }
