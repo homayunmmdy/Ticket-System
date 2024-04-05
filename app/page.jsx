@@ -8,10 +8,12 @@ const Dashboard = () => {
   const [filteredTickets, setFilteredTickets] = useState([]);
   const [categories, setCategories] = useState([]);
   const [websites, setWebsites] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true)
         const ticketResponse = await axios.get(`/api/Tickets`);
         setTickets(ticketResponse.data.tickets);
         setFilteredTickets(ticketResponse.data.tickets);
@@ -21,6 +23,7 @@ const Dashboard = () => {
 
         const websiteResponse = await axios.get(`/api/Website`);
         setWebsites(websiteResponse.data.websites);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -30,6 +33,7 @@ const Dashboard = () => {
   }, []);
 
   const handleFilterChange = (filterType, value) => {
+    setLoading(true)
     let filtered;
     if (filterType === "status") {
       filtered = value === "all" ? tickets : tickets.filter((ticket) => ticket.status === value);
@@ -41,6 +45,7 @@ const Dashboard = () => {
       filtered = value === "all" ? tickets : tickets.filter((ticket) => ticket.website === value);
     }
     setFilteredTickets(filtered);
+    setLoading(false)
   };
 
   return (
@@ -102,20 +107,25 @@ const Dashboard = () => {
             </select>
           </div>
         </div>
-        <h1 className="text-3xl text-center">Available Tickets {filteredTickets.length}</h1>
-        <div className="lg:grid grid-cols-2 xl:grid-cols-4 ">
-          {filteredTickets.map((filteredTicket, index) => (
-            <TicketCard
-              id={index}
-              key={index}
-              ticket={filteredTicket}
-            />
-          ))}
-        </div>
+        {loading ? <h1>Loading</h1> :
+          (
+            <>
+              <h1 className="text-3xl text-center">Available Tickets {filteredTickets.length}</h1>
+              <div className="lg:grid grid-cols-2 xl:grid-cols-4 ">
+                {filteredTickets.map((filteredTicket, index) => (
+                  <TicketCard
+                    id={index}
+                    key={index}
+                    ticket={filteredTicket}
+                  />
+                ))}
+              </div>
+            </>
+          )
+        }
       </div>
     </div>
   );
 };
 
 export default Dashboard;
-
