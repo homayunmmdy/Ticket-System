@@ -17,7 +17,6 @@ const DeleteBlock = ({ path, id }) => {
     } else {
       console.error("Error deleting item:", res.statusText);
     }
-
   };
 
   const handleConfirmClose = () => {
