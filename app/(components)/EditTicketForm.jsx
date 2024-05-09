@@ -112,7 +112,7 @@ const EditTicketForm = ({ ticket }) => {
           onChange={handleChange}
           required={true}
           value={formData.title}
-          className="input input-bordered input-primary"
+          className="input input-bordered input-error"
         />
         <label>Description</label>
         <textarea
@@ -121,14 +121,14 @@ const EditTicketForm = ({ ticket }) => {
           onChange={handleChange}
           value={formData.description}
           rows="5"
-          className="textarea textarea-primary"
+          className="textarea textarea-error"
         />
         <label>Category</label>
         <select
           name="category"
           value={formData.category}
           onChange={handleChange}
-          className="select select-primary w-full"
+          className="select select-error w-full"
         >
           {categories?.map((category) => (
             <option key={category._id} value={category.name}>
@@ -138,7 +138,7 @@ const EditTicketForm = ({ ticket }) => {
         </select>
         <label>website</label>
         <select
-          className="select select-primary w-full"
+          className="select select-error w-full"
           name="category"
           value={formData.website}
           onChange={handleChange}
@@ -158,7 +158,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={1}
             checked={formData.priority == 1}
-            className="radio radio-primary"
+            className="radio radio-error"
           />
           <label>1</label>
           <input
@@ -168,7 +168,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={2}
             checked={formData.priority == 2}
-            className="radio radio-primary"
+            className="radio radio-error"
           />
           <label>2</label>
           <input
@@ -178,7 +178,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={3}
             checked={formData.priority == 3}
-            className="radio radio-primary"
+            className="radio radio-error"
           />
           <label>3</label>
           <input
@@ -188,7 +188,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={4}
             checked={formData.priority == 4}
-            className="radio radio-primary"
+            className="radio radio-error"
           />
           <label>4</label>
           <input
@@ -198,7 +198,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={5}
             checked={formData.priority == 5}
-            className="radio radio-primary"
+            className="radio radio-error"
           />
           <label>5</label>
         </div>
@@ -214,7 +214,7 @@ const EditTicketForm = ({ ticket }) => {
           className="bg-blue-600 h-2.5 rounded-full" />
         <label>Status</label>
         <select name="status" value={formData.status} onChange={handleChange}
-          className="select select-primary w-full"
+          className="select select-error w-full"
         >
           <option value="not started">Not Started</option>
           <option value="started">Started</option>
@@ -224,7 +224,7 @@ const EditTicketForm = ({ ticket }) => {
         <div className="flex justify-center">
           <input
             type="submit"
-            className="btn max-w-xs btn-outline btn-primary"
+            className="btn max-w-xs btn-outline btn-error"
             value={EDITMODE ? "Update Ticket" : "Create Ticket"}
           />
         </div>

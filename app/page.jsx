@@ -64,7 +64,7 @@ const Dashboard = () => {
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Status:</span>
             <select
-              className="select select-info w-full p-2 border border-gray-300 rounded"
+              className="select select-error w-full p-2 border border-gray-300 rounded"
               onChange={(e) => handleFilterChange("status", e.target.value)}
             >
               <option value="all">All</option>
@@ -77,7 +77,7 @@ const Dashboard = () => {
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Priority:</span>
             <select
-              className="select select-info w-full p-2 border border-gray-300 rounded"
+              className="select select-error w-full p-2 border border-gray-300 rounded"
               onChange={(e) => handleFilterChange("priority", e.target.value)}
             >
               {[1, 2, 3, 4, 5].map((priority) => (
@@ -90,7 +90,7 @@ const Dashboard = () => {
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Category:</span>
             <select
-              className="select select-info w-full p-2 border border-gray-300 rounded"
+              className="select select-error w-full p-2 border border-gray-300 rounded"
               onChange={(e) => handleFilterChange("category", e.target.value)}
             >
               <option value="all">All</option>
@@ -104,7 +104,7 @@ const Dashboard = () => {
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Website:</span>
             <select
-              className="select select-info w-full p-2 border border-gray-300 rounded"
+              className="select select-error w-full p-2 border border-gray-300 rounded"
               onChange={(e) => handleFilterChange("website", e.target.value)}
             >
               <option value="all">All</option>

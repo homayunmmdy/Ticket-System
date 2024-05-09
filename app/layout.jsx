@@ -1,22 +1,25 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/app/(components)/Nav"
+import SiteConfig from "./config/site";
+import Footer from "./(components)/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Ticket System",
-  description: "Ticket Managment system that you cna manage your tickets",
+  title: SiteConfig.name,
+  description: SiteConfig.description,
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang={SiteConfig.lang} dir={SiteConfig.dir} data-theme="dark">
       <body className={inter.className}>
         <div className="flex flex-col h-screen max-h-screen">
           <Nav />
           <div className="flex-grow overflow-y-auto bg-page text-default-text">
             {children}
           </div>
+          <Footer />
         </div>
       </body>
     </html>
