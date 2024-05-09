@@ -12,7 +12,6 @@ export async function GET() {
   }
 }
 
-
 export async function POST(req) {
   try {
     const body = await req.json();
@@ -20,13 +19,16 @@ export async function POST(req) {
 
     const existingCategory = await Category.findOne({ name });
     if (existingCategory) {
-      return NextResponse.json({ message: "این برچسب وجود دارد" }, { status: 400 });
+      return NextResponse.json(
+        { message: "This name exict try another" },
+        { status: 400 }
+      );
     }
 
     // Create new subscription
     await Category.create({ name });
 
-    return NextResponse.json({ message: "برچسب ساخته شد" }, { status: 201 });
+    return NextResponse.json({ message: "Category Created" }, { status: 201 });
   } catch (err) {
     console.log(err);
     return NextResponse.json({ message: "Error", err }, { status: 500 });

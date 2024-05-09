@@ -1,6 +1,7 @@
 
 import Link from "next/link";
-
+import Logo from "@/public/logo.png"
+import Image from "next/image";
 const navbar = [
   {
     id: 1,
@@ -36,7 +37,10 @@ const Nav = () => {
               ))}
             </ul>
           </div>
-          <Link href="/" >Tickets</Link>
+          <Link className="flex gap-3 items-center" href="/">
+            <Image src={Logo} width={40} height={40} alt="red tickets" title="Tickets" />
+            <span className="font-bold hover:text-red-700">Tickets</span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-3">
@@ -52,7 +56,7 @@ const Nav = () => {
               Theme
               <svg width="12px" height="12px" className="h-2 w-2 fill-current opacity-60 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg>
             </div>
-            <ul tabIndex={0} className="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
+            <ul tabIndex={0} className="dropdown-content absolute right-0 z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
               <li><input type="radio" name="theme-dropdown" className="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Default" value="cupcake" /></li>
               <li><input type="radio" name="theme-dropdown" className="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Dark" value="dark" /></li>
               <li><input type="radio" name="theme-dropdown" className="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Forest" value="forest" /></li>
