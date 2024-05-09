@@ -4,26 +4,17 @@ import DeleteBlock from "./DeleteBlock";
 import ProgressDisplay from "./ProgressDisplay";
 import Link from "next/link";
 import { FaEdit } from "react-icons/fa";
+import FormattedTimestamp from "./FormattedTimestamp";
 
 const TicketCard = ({ ticket }) => {
-  function formatTimestamp(timestamp) {
-    const options = {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    };
-
-    const date = new Date(timestamp);
-    const formattedDate = date.toLocaleString("en-US", options);
-
-    return formattedDate;
-  }
-
-  const createdDateTime = formatTimestamp(ticket.createdAt);
-
+  const options = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  };
   return (
     <div className="card flex flex-col hover:bg-card-hover bg-card rounded-md shadow-xl p-5 m-2">
       <div className="flex mb-3">
@@ -47,7 +38,7 @@ const TicketCard = ({ ticket }) => {
         <div className="flex-grow"></div>
         <div className="flex mt-2">
           <div className="flex flex-col">
-            <p className="text-xs  my-1">{createdDateTime}</p>
+            <p className="text-xs  my-1"><FormattedTimestamp timestamp={ticket.createdAt} options={options} /></p>
             <ProgressDisplay progress={ticket.progress} />
           </div>
           <div className="ml-auto  flex items-end">

@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang={SiteConfig.lang} dir={SiteConfig.dir} data-theme="dark">
       <body className={inter.className}>
-        <div className="flex flex-col h-screen max-h-screen">
+        <div className="flex flex-col ">
           <Nav />
           <div className="flex-grow overflow-y-auto bg-page text-default-text">
             {children}

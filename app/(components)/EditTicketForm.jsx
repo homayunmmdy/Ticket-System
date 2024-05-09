@@ -211,7 +211,7 @@ const EditTicketForm = ({ ticket }) => {
           min="0"
           max="100"
           onChange={handleChange}
-          className="bg-blue-600 h-2.5 rounded-full" />
+          className="bg-red-600 h-2.5 rounded-full" />
         <label>Status</label>
         <select name="status" value={formData.status} onChange={handleChange}
           className="select select-error w-full"

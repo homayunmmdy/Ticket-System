@@ -6,30 +6,30 @@ const PriorityDisplay = ({ priority }) => {
       <FaFire
       size={20}
         className={` pr-1 ${
-          priority > 0 ? " text-red-400" : " text-slate-400"
+          priority > 0 ? " text-red-500" : " text-slate-500"
         }`}
       />
       <FaFire
       size={20}
         className={` pr-1 ${
-          priority > 1 ? " text-red-400" : " text-slate-400"
+          priority > 1 ? " text-red-500" : " text-slate-500"
         }`}
       />
       <FaFire
       size={20}
         className={`  pr-1 ${
-          priority > 2 ? " text-red-400" : " text-slate-400"
+          priority > 2 ? " text-red-500" : " text-slate-500"
         }`}
       />
       <FaFire
       size={20}
         className={` pr-1 ${
-          priority > 3 ? " text-red-400" : " text-slate-400"
+          priority > 3 ? " text-red-500" : " text-slate-500"
         }`}
       />
       <FaFire
       size={20}
-        className={` ${priority > 4 ? " text-red-400" : " text-slate-400"}`}
+        className={` ${priority > 4 ? " text-red-500" : " text-slate-500"}`}
       />
     </div>
   );
