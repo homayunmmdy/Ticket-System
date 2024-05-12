@@ -3,8 +3,10 @@
 import FormattedTimestamp from "@/app/(components)/FormattedTimestamp";
 import PriorityDisplay from "@/app/(components)/PriorityDisplay";
 import ProgressDisplay from "@/app/(components)/ProgressDisplay";
+import RecentTickets from "@/app/(components)/RecentTickets";
 import SingleTicket from "@/app/(components)/SingleTicket";
 import StatusDisplay from "@/app/(components)/StatusDisplay";
+import Link from "next/link";
 
 
 const SingleTicketPage = () => {
@@ -32,12 +34,14 @@ const SingleTicketPage = () => {
         <div className="py-8">
           <div className="container mx-auto px-4 flex flex-col md:flex-row">
             <div className="w-full md:w-1/4 px-4">
-            <div className="flex flex-col gap-4 justify-center items-center">
+              <div className="flex flex-col gap-4 justify-center items-center mb-2">
+                <Link className="btn btn-outline btn-error" href="/">Back Home</Link>
                 <PriorityDisplay priority={ticket.priority} />
-                <div className="w-[25%]">
+                <div className="w-[40%]">
                   <StatusDisplay status={ticket.status} />
                 </div>
               </div>
+              <RecentTickets />
             </div>
             <div className="w-full md:w-3/4 px-4">
               <div className="my-3">

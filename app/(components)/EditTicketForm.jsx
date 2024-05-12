@@ -9,6 +9,7 @@ const EditTicketForm = ({ ticket }) => {
   const startingTicketData = {
     title: "",
     description: "",
+    body: "",
     priority: 1,
     progress: 0,
     status: "not started",
@@ -17,6 +18,7 @@ const EditTicketForm = ({ ticket }) => {
   if (EDITMODE) {
     startingTicketData["title"] = ticket.title;
     startingTicketData["description"] = ticket.description;
+    startingTicketData["body"] = ticket.body;
     startingTicketData["priority"] = ticket.priority;
     startingTicketData["progress"] = ticket.progress;
     startingTicketData["status"] = ticket.status;
@@ -121,6 +123,15 @@ const EditTicketForm = ({ ticket }) => {
           onChange={handleChange}
           value={formData.description}
           rows="5"
+          className="textarea textarea-error"
+        />
+        <label>Body</label>
+        <textarea
+          id="body"
+          name="body"
+          onChange={handleChange}
+          value={formData.body}
+          rows="7"
           className="textarea textarea-error"
         />
         <label>Category</label>
