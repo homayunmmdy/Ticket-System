@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import TicketCard from "@/app/(components)/TicketCard";
 import axios from "axios";
+import TicketCardSkeleton from "./(components)/TicketCardSkeleton";
 
 const Dashboard = () => {
   const [tickets, setTickets] = useState([]);
@@ -116,10 +117,10 @@ const Dashboard = () => {
             </select>
           </div>
         </div>
-        {loading ? <h1>Loading</h1> :
+        {loading ? <TicketCardSkeleton /> :
           (
             <>
-              <div className="lg:grid grid-cols-2 xl:grid-cols-4 ">
+              <div className="lg:grid grid-cols-2 xl:grid-cols-4">
                 {filteredTickets.map((filteredTicket, index) => (
                   <TicketCard
                     id={index}
@@ -132,7 +133,7 @@ const Dashboard = () => {
                 {Array.from({ length: Math.ceil(tickets.length / pageSize) }, (_, i) => (
                   <button
                     key={i}
-                    className={`mx-1 p-2 border ${currentPage === i + 1 ? "bg-blue-500 text-white" : "border-gray-300"
+                    className={`mx-1 p-2 border ${currentPage === i + 1 ? "bg-red-700 text-white" : "border-red-500"
                       } rounded`}
                     onClick={() => handlePageChange(i + 1)}
                   >
