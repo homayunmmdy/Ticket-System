@@ -47,7 +47,12 @@ const SingleTicketPage = () => {
               <div className="my-3">
                 <ProgressDisplay progress={ticket.progress} />
               </div>
-              {ticket.description}
+              <p className="py-3 text-lg leading-7">
+                {ticket.description}
+              </p>
+              <pre lassName="text-lg leading-7">
+                {ticket.body}
+              </pre>
             </div>
 
           </div>

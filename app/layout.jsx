@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang={SiteConfig.lang} dir={SiteConfig.dir} data-theme="dark">
+    <html lang={SiteConfig.lang} dir={SiteConfig.dir} data-theme="cupcake">
       <body className={inter.className}>
         <div className="flex flex-col ">
           <Nav />

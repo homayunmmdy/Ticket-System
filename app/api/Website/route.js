@@ -20,13 +20,13 @@ export async function POST(req) {
 
     const existingWebsits = await Website.findOne({ name });
     if (existingWebsits) {
-      return NextResponse.json({ message: "این وبسایت وجود دارد" }, { status: 400 });
+      return NextResponse.json({ message: "This website exist " }, { status: 400 });
     }
 
     // Create new subscription
     await Website.create({ name });
 
-    return NextResponse.json({ message: "وبسایت اضافه شد" }, { status: 201 });
+    return NextResponse.json({ message: "Website successfully Added" }, { status: 201 });
   } catch (err) {
     console.log(err);
     return NextResponse.json({ message: "Error", err }, { status: 500 });

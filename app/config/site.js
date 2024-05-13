@@ -5,8 +5,8 @@ const SiteConfig = {
     dir: "ltr",
     nav: [
       { id: 1, name: "Home", link: "/" },
-      { id: 2, name: "Category", link: "/category" },
-      { id: 3, name: "Website", link: "/website" },
+      { id: 2, name: "Category", link: "/Category" },
+      { id: 3, name: "Website", link: "/Website" },
     ],
   };
   

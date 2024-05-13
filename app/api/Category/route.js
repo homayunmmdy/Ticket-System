@@ -20,7 +20,7 @@ export async function POST(req) {
     const existingCategory = await Category.findOne({ name });
     if (existingCategory) {
       return NextResponse.json(
-        { message: "This name exict try another" },
+        { message: "Try Another name this name is exist" },
         { status: 400 }
       );
     }
@@ -28,7 +28,7 @@ export async function POST(req) {
     // Create new subscription
     await Category.create({ name });
 
-    return NextResponse.json({ message: "Category Created" }, { status: 201 });
+    return NextResponse.json({ message: "Category Successfully Added" }, { status: 201 });
   } catch (err) {
     console.log(err);
     return NextResponse.json({ message: "Error", err }, { status: 500 });
