@@ -2,6 +2,8 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditTicketForm = ({ ticket }) => {
   const EDITMODE = ticket._id === "new" ? false : true;
@@ -50,6 +52,7 @@ const EditTicketForm = ({ ticket }) => {
         body: JSON.stringify({ formData }),
       });
       if (!res.ok) {
+        toast.error("Failed to update ticket");
         throw new Error("Failed to update ticket");
       }
     } else {
@@ -60,11 +63,12 @@ const EditTicketForm = ({ ticket }) => {
         "Content-Type": "application/json",
       });
       if (!res.ok) {
+        toast.error("Failed to create ticket");
         throw new Error("Failed to create ticket");
       }
     }
-
-    router.push("/");
+    toast.success("Your Ticket Created Successfully");
+    router.push("/Tickets");
     router.refresh();
   };
 
@@ -76,6 +80,7 @@ const EditTicketForm = ({ ticket }) => {
         const response = await axios.get(`/api/Category`);
         setCategories(response.data.categories);
       } catch (error) {
+        toast.error("Error fetching categories:", error);
         console.error("Error fetching categories:", error);
       }
     };
@@ -91,6 +96,7 @@ const EditTicketForm = ({ ticket }) => {
         const response = await axios.get(`/api/Website`);
         setwebsites(response.data.websites);
       } catch (error) {
+        toast.error("Error fetching websites:", error);
         console.error("Error fetching websites:", error);
       }
     };
@@ -100,6 +106,7 @@ const EditTicketForm = ({ ticket }) => {
 
   return (
     <div className=" flex justify-center">
+      <ToastContainer />
       <form
         onSubmit={handleSubmit}
         method="post"
@@ -136,6 +143,7 @@ const EditTicketForm = ({ ticket }) => {
         />
         <label>Category</label>
         <select
+          id="category"
           name="category"
           value={formData.category}
           onChange={handleChange}
@@ -149,8 +157,9 @@ const EditTicketForm = ({ ticket }) => {
         </select>
         <label>website</label>
         <select
+          id="website"
+          name="website"
           className="select select-error w-full"
-          name="category"
           value={formData.website}
           onChange={handleChange}
         >

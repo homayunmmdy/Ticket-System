@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import TicketCard from "@/app/(components)/TicketCard";
 import axios from "axios";
 import TicketCardSkeleton from "@/app/(components)/TicketCardSkeleton";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
@@ -28,6 +30,7 @@ const Tickets = () => {
         setWebsites(websiteResponse.data.websites);
         setLoading(false);
       } catch (error) {
+        toast.error("Error fetching data:", error);
         console.error("Error fetching data:", error);
       }
     };
@@ -60,6 +63,7 @@ const Tickets = () => {
 
   return (
     <div className="p-2 md:p-5">
+      <ToastContainer />
       <div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3   xl:grid-cols-4 gap-4 mb-4">
           <div className="flex flex-col gap-3">
