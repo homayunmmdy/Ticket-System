@@ -51,6 +51,8 @@ const EditTicketForm = ({ ticket }) => {
         },
         body: JSON.stringify({ formData }),
       });
+      const data = await res.json();
+      toast.success(data.message);
       if (!res.ok) {
         toast.error("Failed to update ticket");
         throw new Error("Failed to update ticket");
@@ -62,12 +64,14 @@ const EditTicketForm = ({ ticket }) => {
         //@ts-ignore
         "Content-Type": "application/json",
       });
+      const data = await res.json();
+      toast.success(data.message);
       if (!res.ok) {
         toast.error("Failed to create ticket");
         throw new Error("Failed to create ticket");
       }
     }
-    toast.success("Your Ticket Created Successfully");
+   
     router.push("/Tickets");
     router.refresh();
   };

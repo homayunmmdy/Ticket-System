@@ -31,6 +31,9 @@ const Nav = () => {
                   </li>
                 )
               })}
+              <li>
+                <Link className="flex sm:hidden btn btn-outline btn-error" href="/TicketPage/new">New Tickets</Link>
+              </li>
             </ul>
           </div>
           <Link className="flex gap-3 items-center" href="/">
@@ -40,18 +43,18 @@ const Nav = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-3">
-          {nav?.map((item) => {
-                return (
-                  <li key={item.id} className="mb-2">
-                    {pathname === item.link ? <Link href={item.link} className="bg-red-600 hover:bg-red-600">{item.name}</Link> :
-                      <Link href={item.link} className='hover:bg-red-600'>{item.name}</Link>}
-                  </li>
-                )
-              })}
+            {nav?.map((item) => {
+              return (
+                <li key={item.id} className="mb-2">
+                  {pathname === item.link ? <Link href={item.link} className="bg-red-600 hover:bg-red-600">{item.name}</Link> :
+                    <Link href={item.link} className='hover:bg-red-600'>{item.name}</Link>}
+                </li>
+              )
+            })}
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn btn-outline btn-error" href="/TicketPage/new">New Tickets</Link>
+          <Link className="hidden sm:flex btn btn-outline btn-error" href="/TicketPage/new">New Tickets</Link>
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn m-1">
               Theme

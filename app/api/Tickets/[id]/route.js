@@ -19,7 +19,7 @@ export async function PUT(req, { params }) {
       ...ticketData,
     });
 
-    return NextResponse.json({ message: "Ticket updated" }, { status: 200 });
+    return NextResponse.json({ message: "Your Ticket updated Successfully" }, { status: 200 });
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: "Error", error }, { status: 500 });
