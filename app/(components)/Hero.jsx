@@ -3,7 +3,7 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <div className="flex h-screen justify-center items-center ">
+        <div className="flex lg:h-screen justify-center items-center ">
     <div className="mx-auto mt-10 flex justify-center px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8">
         <div className="text-center ">
             <h1
@@ -25,7 +25,7 @@ const Hero = () => {
                     </span>
                 </div>
             </h1>
-            <p className="mx-auto mt-3 max-w-xl text-lg text-base-100  sm:mt-5 md:mt-5">
+            <p className="mx-auto mt-3 max-w-xl text-lg  sm:mt-5 md:mt-5">
                 this simple and easy to use and understand ticket-system is good for the small and even big companies to mangae their tickets 
                 and have controll on their workflow 
             </p>
