@@ -62,7 +62,7 @@ const Tickets = () => {
   };
 
   return (
-    <div className="p-2 md:p-5">
+    <div className="p-5 md:p-9">
       <ToastContainer />
       <div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3   xl:grid-cols-4 gap-4 mb-4">
