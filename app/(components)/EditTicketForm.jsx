@@ -47,20 +47,20 @@ const EditTicketForm = ({ ticket }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    const requestData = {
-      ...formData,
-      startTime: new Date(formData.startTime).toISOString(),
-      endTime: new Date(formData.endTime).toISOString(),
-    };
-  
+
+    // const requestData = {
+    //   ...formData,
+    //   startTime: new Date(formData.startTime).toISOString(),
+    //   endTime: new Date(formData.endTime).toISOString(),
+    // };
+
     if (EDITMODE) {
       const res = await fetch(`/api/Tickets/${ticket._id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify(requestData),
+        body: JSON.stringify({ formData }),
       });
       const data = await res.json();
       toast.success(data.message);
@@ -74,7 +74,7 @@ const EditTicketForm = ({ ticket }) => {
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify(requestData),
+        body: JSON.stringify({ formData }),
       });
       const data = await res.json();
       toast.success(data.message);
@@ -83,7 +83,7 @@ const EditTicketForm = ({ ticket }) => {
         throw new Error("Failed to create ticket");
       }
     }
-  
+
     router.push("/Tickets");
     router.refresh();
   };

@@ -17,13 +17,6 @@ export async function POST(req) {
     const body = await req.json();
     const ticketData = body.formData;
 
-    // Ensure startTime and endTime are properly parsed to Date objects
-    if (ticketData.startTime) {
-      ticketData.startTime = new Date(ticketData.startTime);
-    }
-    if (ticketData.endTime) {
-      ticketData.endTime = new Date(ticketData.endTime);
-    }
 
     await Ticket.create(ticketData);
 
