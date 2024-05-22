@@ -13,6 +13,8 @@ const ticketSchema = new Schema(
     priority: Number,
     progress: Number,
     status: String,
+    startTime: Date, // Add startTime field
+    endTime: Date, // Add endTime field
     active: Boolean,
   },
   {

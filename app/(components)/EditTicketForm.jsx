@@ -15,6 +15,8 @@ const EditTicketForm = ({ ticket }) => {
     priority: 1,
     progress: 0,
     status: "not started",
+    startTime: "",
+    endTime: "",
   };
 
   if (EDITMODE) {
@@ -26,6 +28,9 @@ const EditTicketForm = ({ ticket }) => {
     startingTicketData["status"] = ticket.status;
     startingTicketData["category"] = ticket.category;
     startingTicketData["website"] = ticket.website;
+    startingTicketData["startTime"] = ticket.startTime;
+    startingTicketData["endTime"] = ticket.endTime;
+
   }
 
   const [formData, setFormData] = useState(startingTicketData);
@@ -42,14 +47,20 @@ const EditTicketForm = ({ ticket }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    const requestData = {
+      ...formData,
+      startTime: new Date(formData.startTime).toISOString(),
+      endTime: new Date(formData.endTime).toISOString(),
+    };
+  
     if (EDITMODE) {
       const res = await fetch(`/api/Tickets/${ticket._id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ formData }),
+        body: JSON.stringify(requestData),
       });
       const data = await res.json();
       toast.success(data.message);
@@ -60,9 +71,10 @@ const EditTicketForm = ({ ticket }) => {
     } else {
       const res = await fetch("/api/Tickets", {
         method: "POST",
-        body: JSON.stringify({ formData }),
-        //@ts-ignore
-        "Content-Type": "application/json",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(requestData),
       });
       const data = await res.json();
       toast.success(data.message);
@@ -71,7 +83,7 @@ const EditTicketForm = ({ ticket }) => {
         throw new Error("Failed to create ticket");
       }
     }
-   
+  
     router.push("/Tickets");
     router.refresh();
   };
@@ -144,6 +156,25 @@ const EditTicketForm = ({ ticket }) => {
           value={formData.body}
           rows="7"
           className="textarea textarea-error"
+        />
+        <label>Start Time</label>
+        <input
+          id="startTime"
+          name="startTime"
+          type="datetime-local"
+          onChange={handleChange}
+          value={formData.startTime}
+          className="input input-bordered input-error"
+        />
+
+        <label>End Time</label>
+        <input
+          id="endTime"
+          name="endTime"
+          type="datetime-local"
+          onChange={handleChange}
+          value={formData.endTime}
+          className="input input-bordered input-error"
         />
         <label>Category</label>
         <select
