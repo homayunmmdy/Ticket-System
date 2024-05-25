@@ -35,7 +35,7 @@ const SingleTicketPage = () => {
           <div className="container mx-auto px-4 flex flex-col md:flex-row">
             <div className="w-full md:w-1/4 px-4">
               <div className="flex flex-col gap-4 justify-center items-center mb-2">
-                <Link className="btn btn-outline btn-error" href="/">Back Home</Link>
+                <Link className="btn btn-outline btn-error" href="/Tickets">Back Tickets</Link>
                 <PriorityDisplay priority={ticket.priority} />
                 <div className="w-[40%]">
                   <StatusDisplay status={ticket.status} />
@@ -50,9 +50,9 @@ const SingleTicketPage = () => {
               <p className="py-3 text-lg leading-7">
                 {ticket.description}
               </p>
-              <pre lassName="text-lg leading-7">
+              <p lassName="text-lg leading-7">
                 {ticket.body}
-              </pre>
+              </p>
             </div>
 
           </div>

@@ -87,7 +87,7 @@ const Category = () => {
                   <tr tabindex="0" key={item.id} className="focus:outline-none h-16 border border-gray-100 rounded">
                     <td className="">
                       <div className="flex items-center pl-5">
-                        <p className="text-base font-medium leading-none text-white mr-2">{item.name}</p>
+                        <p className="text-base font-medium leading-none  mr-2">{item.name}</p>
                       </div>
                     </td>
                     <td className="pl-4">

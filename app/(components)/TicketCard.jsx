@@ -16,7 +16,7 @@ const TicketCard = ({ ticket }) => {
     hour12: true,
   };
   return (
-    <div className="card flex flex-col hover:bg-card-hover bg-card rounded-md shadow-xl p-5 m-2">
+    <div className="card flex flex-col hover:bg-card-hover bg-card rounded-md shadow-xl p-5 m-2 h-full">
       <div className="flex mb-3">
         <PriorityDisplay priority={ticket.priority} />
         <div className="ml-auto">
