@@ -1,5 +1,7 @@
 # Ticket System
 
+![Screenshot 2024-08-15 at 14-26-16 Ticket System](https://github.com/user-attachments/assets/75e11181-b378-437e-9fe7-f44b046e32de)
+
 The Ticket System is a web-based application designed to manage and track tickets efficiently. Whether it's issues, requests, or any task that requires systematic tracking, this system offers a user-friendly interface and robust features to ensure smooth operations.
 
 ## Features
