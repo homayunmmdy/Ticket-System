@@ -3,17 +3,17 @@
 import Logo from "@/public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import SiteConfig from "../config/site";
 import ThemeToggle from "./ThemeToggle";
+import Container from "./Container";
 
 const Nav = () => {
-  const router = useRouter();
   const pathname = usePathname();
   const nav = SiteConfig.nav;
   return (
-    <>
-      <div className="navbar bg-base-100">
+    <Container>
+      <div className="navbar bg-base-100 p-0 m-0">
         <div className="navbar-start">
           <Link className="flex items-center gap-3" href="/">
             <Image src={Logo} width={40} height={40} alt="red tickets" title="Tickets" />
@@ -37,7 +37,7 @@ const Nav = () => {
           <ThemeToggle />
         </div>
       </div>
-    </>
+    </Container>
   );
 };
 

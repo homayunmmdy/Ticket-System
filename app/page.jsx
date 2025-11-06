@@ -1,12 +1,13 @@
+import Container from './components/Container'
 import Hero from './components/Hero'
 import Statistic from './components/Statistic'
 
 const Home = () => {
   return (
-    <div>
+    <Container>
       <Hero />
       <Statistic />
-    </div>
+    </Container>
   )
 }
 

@@ -1,4 +1,5 @@
 "use client"
+import Container from "@/app/components/Container";
 import TicketCard from "@/app/components/TicketCard";
 import TicketCardSkeleton from "@/app/components/TicketCardSkeleton";
 import axios from "axios";
@@ -57,7 +58,7 @@ const Tickets = () => {
   };
 
   return (
-    <div className="p-5 md:p-9">
+    <Container className="py-5 md:py-9">
       <ToastContainer />
       <div>
         <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -131,7 +132,7 @@ const Tickets = () => {
           )
         }
       </div>
-    </div>
+    </Container>
   );
 };
 
