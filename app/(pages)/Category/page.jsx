@@ -1,5 +1,5 @@
 "use client";
-import CategoryTable from "@/app/(components)/categoryTable";
+import CategoryTable from "@/app/components/CategoryTable";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';

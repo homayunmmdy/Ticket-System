@@ -1,11 +1,11 @@
 "use client";
 
-import FormattedTimestamp from "@/app/(components)/FormattedTimestamp";
-import PriorityDisplay from "@/app/(components)/PriorityDisplay";
-import ProgressDisplay from "@/app/(components)/ProgressDisplay";
-import RecentTickets from "@/app/(components)/RecentTickets";
-import SingleTicket from "@/app/(components)/SingleTicket";
-import StatusDisplay from "@/app/(components)/StatusDisplay";
+import FormattedTimestamp from "@/app/components/FormattedTimestamp";
+import PriorityDisplay from "@/app/components/PriorityDisplay";
+import ProgressDisplay from "@/app/components/ProgressDisplay";
+import RecentTickets from "@/app/components/RecentTickets";
+import SingleTicket from "@/app/components/SingleTicket";
+import StatusDisplay from "@/app/components/StatusDisplay";
 import Link from "next/link";
 
 

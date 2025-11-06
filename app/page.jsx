@@ -1,6 +1,5 @@
-import React from 'react'
-import Hero from './(components)/Hero'
-import Statistic from './(components)/Statistic'
+import Hero from './components/Hero'
+import Statistic from './components/Statistic'
 
 const Home = () => {
   return (

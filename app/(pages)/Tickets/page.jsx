@@ -1,8 +1,8 @@
 "use client"
-import React, { useState, useEffect } from "react";
-import TicketCard from "@/app/(components)/TicketCard";
+import TicketCard from "@/app/components/TicketCard";
+import TicketCardSkeleton from "@/app/components/TicketCardSkeleton";
 import axios from "axios";
-import TicketCardSkeleton from "@/app/(components)/TicketCardSkeleton";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -101,7 +101,7 @@ const Tickets = () => {
               ))}
             </select>
           </div>
-          
+
         </div>
         {loading ? <TicketCardSkeleton /> :
           (
