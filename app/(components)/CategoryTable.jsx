@@ -13,7 +13,7 @@ const CategoryTable = ({ data }) => {
             </thead>
             <tbody>
                 {data?.map((item) => (
-                    <tr tabindex="0" key={item.id} className="h-16 rounded border border-gray-100 focus:outline-none">
+                    <tr tabindex="0" key={item.id} className="h-16 rounded-sm border border-gray-100 focus:outline-hidden">
                         <td className="">
                             <div className="flex items-center pl-5">
                                 <p className="mr-2 text-base font-medium leading-none">{item.id}</p>

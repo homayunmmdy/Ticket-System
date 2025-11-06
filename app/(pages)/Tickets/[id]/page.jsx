@@ -27,7 +27,7 @@ const SingleTicketPage = () => {
       <div className="flex flex-col">
         <div className="bg-base-200 py-8">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl text-center font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-red-400">{ticket.title}</h1>
+            <h1 className="text-4xl text-center font-extrabold bg-clip-text text-transparent bg-linear-to-r from-amber-500 to-red-400">{ticket.title}</h1>
             <p className="text-xs  text-center my-3"><FormattedTimestamp timestamp={ticket.createdAt} options={options} /></p>
           </div>
         </div>

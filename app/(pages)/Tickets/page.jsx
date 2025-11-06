@@ -64,7 +64,7 @@ const Tickets = () => {
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Status:</span>
             <select
-              className="select select-error w-full rounded border border-gray-300 p-2"
+              className="select select-error w-full rounded-sm border border-gray-300 p-2"
               onChange={(e) => handleFilterChange("status", e.target.value)}
             >
               <option value="all">All</option>
@@ -77,7 +77,7 @@ const Tickets = () => {
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Priority:</span>
             <select
-              className="select select-error w-full rounded border border-gray-300 p-2"
+              className="select select-error w-full rounded-sm border border-gray-300 p-2"
               onChange={(e) => handleFilterChange("priority", e.target.value)}
             >
               {[1, 2, 3, 4, 5].map((priority) => (
@@ -90,7 +90,7 @@ const Tickets = () => {
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Category:</span>
             <select
-              className="select select-error w-full rounded border border-gray-300 p-2"
+              className="select select-error w-full rounded-sm border border-gray-300 p-2"
               onChange={(e) => handleFilterChange("category", e.target.value)}
             >
               <option value="all">All</option>

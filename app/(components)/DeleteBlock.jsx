@@ -28,7 +28,7 @@ const DeleteBlock = ({ path, id }) => {
       <button
         type="button"
         onClick={() => setIsConfirmOpen(true)}
-        className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+        className="focus:outline-hidden text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
       >
         <MdDeleteOutline />
       </button>
@@ -41,7 +41,7 @@ const DeleteBlock = ({ path, id }) => {
               <button
                 type="button"
                 onClick={handleConfirmClose}
-                className="icon btn-close focus:outline-none"
+                className="icon btn-close focus:outline-hidden"
               ></button>
             </div>
             <div className="p-3 text-gray-700">
@@ -51,14 +51,14 @@ const DeleteBlock = ({ path, id }) => {
               <button
                 type="button"
                 onClick={handleConfirmClose}
-                className="text-gray-500 hover:text-gray-700 focus:outline-none rounded-md border border-gray-200 p-2 mr-2"
+                className="text-gray-500 hover:text-gray-700 focus:outline-hidden rounded-md border border-gray-200 p-2 mr-2"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={handleDelete}
-                className="text-white bg-red-500 hover:bg-red-600 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+                className="text-white bg-red-500 hover:bg-red-600 focus:outline-hidden font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
               >
                 Delete
               </button>

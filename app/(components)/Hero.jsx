@@ -9,7 +9,7 @@ const Hero = () => {
             <h1
                 className="text-base-50 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
                 <span className="block xl:inline"><span className="mb-1 block">Manage Your </span>
-                <span className="bg-gradient-to-r from-indigo-400 to-pink-600 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-indigo-400 to-pink-600 bg-clip-text text-transparent">
                     Ticket System
                 </span>
                 </span>
@@ -30,7 +30,7 @@ const Hero = () => {
                 and have controll on their workflow 
             </p>
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center">
-                <div className="rounded-md shadow"><Link
+                <div className="rounded-md shadow-sm"><Link
                         className="flex w-full items-center justify-center rounded-md border border-transparent bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 md:px-10 md:py-4 md:text-lg"
                         href="/Tickets">Get started for free 🚀
                     </Link>
