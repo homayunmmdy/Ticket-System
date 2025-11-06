@@ -20,11 +20,12 @@ const Tickets = () => {
       try {
         setLoading(true)
         const ticketResponse = await axios.get(`/api/Tickets`);
-        setTickets(ticketResponse.data.tickets);
-        setFilteredTickets(ticketResponse.data.tickets.slice(0, pageSize));
+        console.log(ticketResponse)
+        setTickets(ticketResponse.data.data);
+        setFilteredTickets(ticketResponse.data.data.slice(0, pageSize));
 
         const categoryResponse = await axios.get(`/api/Category`);
-        setCategories(categoryResponse.data.categories);
+        setCategories(categoryResponse.data.data);
 
         setLoading(false);
       } catch (error) {
