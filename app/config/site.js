@@ -7,7 +7,6 @@ const SiteConfig = {
       { id: 1, name: "Home", link: "/" },
       { id: 2, name: "Tickets", link: "/Tickets" },
       { id: 3, name: "Category", link: "/Category" },
-      { id: 4, name: "Website", link: "/Website" },
     ],
   };
   

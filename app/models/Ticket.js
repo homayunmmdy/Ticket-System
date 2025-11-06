@@ -9,12 +9,11 @@ const ticketSchema = new Schema(
     description: String,
     body: String,
     category: String,
-    website: String,
     priority: Number,
     progress: Number,
     status: String,
-    startTime: Date, // Add startTime field
-    endTime: Date, // Add endTime field
+    startTime: Date,
+    endTime: Date, 
     active: Boolean,
   },
   {

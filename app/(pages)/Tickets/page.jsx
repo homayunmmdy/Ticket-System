@@ -10,7 +10,6 @@ const Tickets = () => {
   const [tickets, setTickets] = useState([]);
   const [filteredTickets, setFilteredTickets] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [websites, setWebsites] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(12);
@@ -26,8 +25,6 @@ const Tickets = () => {
         const categoryResponse = await axios.get(`/api/Category`);
         setCategories(categoryResponse.data.categories);
 
-        const websiteResponse = await axios.get(`/api/Website`);
-        setWebsites(websiteResponse.data.websites);
         setLoading(false);
       } catch (error) {
         toast.error("Error fetching data:", error);
@@ -47,8 +44,6 @@ const Tickets = () => {
       filtered = tickets.filter((ticket) => ticket.priority === parseInt(value));
     } else if (filterType === "category") {
       filtered = value === "all" ? tickets : tickets.filter((ticket) => ticket.category === value);
-    } else if (filterType === "website") {
-      filtered = value === "all" ? tickets : tickets.filter((ticket) => ticket.website === value);
     }
     setFilteredTickets(filtered.slice(0, pageSize));
     setLoading(false);
@@ -65,11 +60,11 @@ const Tickets = () => {
     <div className="p-5 md:p-9">
       <ToastContainer />
       <div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3   xl:grid-cols-4 gap-4 mb-4">
+        <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Status:</span>
             <select
-              className="select select-error w-full p-2 border border-gray-300 rounded"
+              className="select select-error w-full rounded border border-gray-300 p-2"
               onChange={(e) => handleFilterChange("status", e.target.value)}
             >
               <option value="all">All</option>
@@ -82,7 +77,7 @@ const Tickets = () => {
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Priority:</span>
             <select
-              className="select select-error w-full p-2 border border-gray-300 rounded"
+              className="select select-error w-full rounded border border-gray-300 p-2"
               onChange={(e) => handleFilterChange("priority", e.target.value)}
             >
               {[1, 2, 3, 4, 5].map((priority) => (
@@ -95,7 +90,7 @@ const Tickets = () => {
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Category:</span>
             <select
-              className="select select-error w-full p-2 border border-gray-300 rounded"
+              className="select select-error w-full rounded border border-gray-300 p-2"
               onChange={(e) => handleFilterChange("category", e.target.value)}
             >
               <option value="all">All</option>
@@ -106,25 +101,12 @@ const Tickets = () => {
               ))}
             </select>
           </div>
-          <div className="flex flex-col gap-3">
-            <span className="mr-2">Filter by Website:</span>
-            <select
-              className="select select-error w-full p-2 border border-gray-300 rounded"
-              onChange={(e) => handleFilterChange("website", e.target.value)}
-            >
-              <option value="all">All</option>
-              {websites.map((website) => (
-                <option key={website._id} value={website.name}>
-                  {website.name}
-                </option>
-              ))}
-            </select>
-          </div>
+          
         </div>
         {loading ? <TicketCardSkeleton /> :
           (
             <>
-              <div className="lg:grid grid-cols-2 xl:grid-cols-4">
+              <div className="grid-cols-2 lg:grid xl:grid-cols-4">
                 {filteredTickets.map((filteredTicket, index) => (
                   <TicketCard
                     id={index}
@@ -133,7 +115,7 @@ const Tickets = () => {
                   />
                 ))}
               </div>
-              {tickets.length < "12" ? null : <div className="flex justify-center mt-4">
+              {tickets.length < "12" ? null : <div className="mt-4 flex justify-center">
                 {Array.from({ length: Math.ceil(tickets.length / pageSize) }, (_, i) => (
                   <button
                     key={i}
