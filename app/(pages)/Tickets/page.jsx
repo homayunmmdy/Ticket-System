@@ -62,7 +62,7 @@ const Tickets = () => {
     <Container className="py-5 md:py-9">
       <ToastContainer />
       <div>
-        <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mb-4 grid grid-cols-1 gap-4 md:gap-9 sm:grid-cols-2 md:grid-cols-3">
           <div className="flex flex-col gap-3">
             <span className="mr-2">Filter by Status:</span>
             <select
@@ -70,7 +70,7 @@ const Tickets = () => {
               onChange={(e) => handleFilterChange("status", e.target.value)}
             >
               <option value="all">All</option>
-              <option value="not started">Not Started</option>
+              <option value="open">Open</option>
               <option value="started">Started</option>
               <option value="delay">Delay</option>
               <option value="done">Done</option>
@@ -108,7 +108,7 @@ const Tickets = () => {
         {loading ? <TicketCardSkeleton /> :
           (
             <>
-              <div className="grid-cols-2 lg:grid xl:grid-cols-4">
+              <div className="grid-cols-2 gap-4 md:grid xl:grid-cols-4">
                 {filteredTickets.map((filteredTicket, index) => (
                   <TicketCard
                     id={index}

@@ -1,7 +1,7 @@
 "use client";
-import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,7 +14,7 @@ const EditTicketForm = ({ ticket }) => {
     body: "",
     priority: 1,
     progress: 0,
-    status: "not started",
+    status: "open",
     startTime: "",
     endTime: "",
   };
@@ -175,7 +175,7 @@ const EditTicketForm = ({ ticket }) => {
             </option>
           ))}
         </select>
-   
+
         <label>Priority</label>
         <div className="flex gap-2">
           <input
@@ -243,7 +243,7 @@ const EditTicketForm = ({ ticket }) => {
         <select name="status" value={formData.status} onChange={handleChange}
           className="select select-error w-full"
         >
-          <option value="not started">Not Started</option>
+          <option value="open">Open</option>
           <option value="started">Started</option>
           <option value="delay">delay</option>
           <option value="done">Done</option>
