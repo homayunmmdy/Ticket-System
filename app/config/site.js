@@ -6,7 +6,7 @@ const SiteConfig = {
     nav: [
       { id: 1, name: "Home", link: "/" },
       { id: 2, name: "Tickets", link: "/Tickets" },
-      { id: 3, name: "Category", link: "/Category" },
+      { id: 3, name: "Setting", link: "/Setting" },
     ],
   };
   

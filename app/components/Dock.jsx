@@ -35,8 +35,8 @@ const DockItems = [
         icon: IoTicketOutline,
     },
     {
-        title: 'Category',
-        url: '/Category',
+        title: 'Setting',
+        url: '/Setting',
         icon: IoSettingsOutline,
     },
 ]
