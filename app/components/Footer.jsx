@@ -23,7 +23,7 @@ const Footer = () => {
                             )
                         })}
                         <a className='cursor-pointer' href='https://tailwindflex.com/@homayunmmdy' target='_blank'>
-                            <Image width={24} height={24} className='h-6 w-6 rounded-full hover:bg-red-700' src={TailwindFlexLogo} />
+                            <Image alt='tailwind flex logo is the single green tree' width={24} height={24} className='h-6 w-6 rounded-full hover:bg-red-700' src={TailwindFlexLogo} />
                         </a>
                     </nav>
                     <aside className="flex grid-flow-col items-center gap-4">
