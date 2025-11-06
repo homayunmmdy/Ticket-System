@@ -8,7 +8,7 @@ import Container from './Container';
 
 const Footer = () => {
     return (
-        <Container>
+        <Container className='hidden sm:block'>
             <footer className="footer p-0 m-0">
                 <div className='mx-auto flex  flex-wrap items-center justify-center py-4 w-full sm:justify-between '>
                     <nav className="flex grid-flow-col gap-4 md:place-self-center md:justify-self-end">
