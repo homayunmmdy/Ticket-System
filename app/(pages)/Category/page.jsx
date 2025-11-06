@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import CategoryTable from "@/app/(components)/categoryTable";
 import axios from "axios";
-import DeleteBlock from "@/app/(components)/DeleteBlock";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -50,17 +50,17 @@ const Category = () => {
   return (
     <div>
       <ToastContainer />
-      <div className="sm:px-6 w-full">
-        <div className="bg-base-300 rounded-xl py-4 md:py-7 my-4 px-4 md:px-8 xl:px-10">
-          <div className="sm:flex items-center justify-between">
+      <div className="w-full sm:px-6">
+        <div className="my-4 rounded-xl border-2 border-base-300 px-4 py-4 md:px-8 md:py-7 xl:px-10">
+          <div className="items-center justify-between sm:flex">
             <div className="flex items-center">
-              <div className="rounded-full focus:outline-none focus:ring-2  focus:bg-indigo-50 focus:ring-indigo-800" href=" javascript:void(0)">
-                <div className="py-2 px-8 bg-indigo-100 text-indigo-700 rounded-full">
+              <div className="rounded-full focus:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-800" href=" javascript:void(0)">
+                <div className="rounded-full bg-red-100 px-8 py-2 text-red-700">
                   <p>Categories</p>
                 </div>
               </div>
             </div>
-            <button className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded" onClick={() => document.getElementById('my_modal_2').showModal()}><p className="text-sm font-medium leading-none text-white">Add Category</p></button>
+            <button className="mt-4 inline-flex items-start justify-start rounded bg-red-700 px-6 py-3 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 sm:mt-0" onClick={() => document.getElementById('my_modal_2').showModal()}><p className="text-sm font-medium leading-none text-white">Add Category</p></button>
             <dialog id="my_modal_2" className="modal">
               <div className="modal-box">
                 <form className="flex gap-5" onSubmit={handleSubmit}>
@@ -81,22 +81,7 @@ const Category = () => {
             </dialog>
           </div>
           <div className="mt-7 overflow-x-auto">
-            <table className="w-full ">
-              <tbody >
-                {data?.map((item) => (
-                  <tr tabindex="0" key={item.id} className="focus:outline-none h-16 border border-gray-100 rounded">
-                    <td className="">
-                      <div className="flex items-center pl-5">
-                        <p className="text-base font-medium leading-none  mr-2">{item.name}</p>
-                      </div>
-                    </td>
-                    <td className="pl-4">
-                      <DeleteBlock path="Category" id={item._id} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <CategoryTable />
           </div>
         </div>
       </div>
