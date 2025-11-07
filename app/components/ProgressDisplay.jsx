@@ -7,11 +7,11 @@ const ProgressDisplay = ({ progress }) => {
       </div>
       <div className="w-full bg-slate-700/50 rounded-full h-3 overflow-hidden shadow-inner backdrop-blur-sm">
         <div
-          className="from-amber-500 via-amber-400 to-yellow-400 h-3 rounded-full transition-all duration-500 ease-out relative overflow-hidden shadow-lg"
+          className="bg-linear-to-r from-amber-500 via-amber-400 to-yellow-400 h-3 rounded-full transition-all duration-500 ease-out relative overflow-hidden shadow-lg"
           style={{ width: `${progress}%` }}
         >
           {/* Animated shimmer effect */}
-          <div className="absolute inset-0 from-transparent via-white/30 to-transparent animate-shimmer"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
         </div>
       </div>
     </div>
