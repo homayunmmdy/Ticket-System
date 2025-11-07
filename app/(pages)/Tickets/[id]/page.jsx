@@ -8,13 +8,12 @@ import RecentTickets from "@/app/components/RecentTickets";
 import SingleTicket from "@/app/components/SingleTicket";
 import StatusDisplay from "@/app/components/StatusDisplay";
 import Link from "next/link";
+import SingleTicketLoadingPage from "./loading";
 
 
 const SingleTicketPage = () => {
-  const ticket = SingleTicket();
-  if (!ticket) {
-    return <h1>No Ticket</h1>
-  }
+  const {ticket , loading} = SingleTicket();
+
   const options = {
     year: "numeric",
     month: "2-digit",
@@ -23,8 +22,11 @@ const SingleTicketPage = () => {
     minute: "2-digit",
     hour12: true,
   };
+
+  if(loading) {
+    return <SingleTicketLoadingPage />
+  }
   return (
-    <>
       <div className="flex flex-col">
         <div className="bg-base-300 shadow-2xl py-8">
           <Container>
@@ -59,7 +61,6 @@ const SingleTicketPage = () => {
           </Container>
         </div>
       </div>
-    </>
   );
 };
 
