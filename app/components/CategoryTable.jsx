@@ -5,9 +5,9 @@ const CategoryTable = ({ data }) => {
             {/* head */}
             <thead>
                 <tr>
-                    <th></th>
+                    <th>id</th>
                     <th>Category Name</th>
-                    <th>Delete</th>
+                    {/* <th>Delete</th> */}
                     {/* <th>Edit</th> */}
                 </tr>
             </thead>
@@ -16,9 +16,10 @@ const CategoryTable = ({ data }) => {
                     <tr tabindex="0" key={item.id} className="h-16 rounded-sm border border-gray-100 focus:outline-hidden">
                         <td className="">
                             <div className="flex items-center pl-5">
-                                <p className="mr-2 text-base font-medium leading-none">{item.id}</p>
+                                <p className="mr-2 text-base font-medium leading-none">{item._id}</p>
                             </div>
                         </td>
+                     
                         <td className="">
                             <div className="flex items-center pl-5">
                                 <p className="mr-2 text-base font-medium leading-none">{item.name}</p>

@@ -9,7 +9,7 @@ const Statistic = () => {
         const fetchData = async () => {
           try {
             const ticketResponse = await axios.get(`/api/Tickets`);
-            setTickets(ticketResponse.data.tickets);
+            setTickets(ticketResponse.data.data);
     
           } catch (error) {
             console.error("Error fetching data:", error);

@@ -40,7 +40,7 @@ const Category = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`/api/Category`);
-        setData(response.data.categories);
+        setData(response.data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -81,7 +81,7 @@ const Category = () => {
           </dialog>
         </div>
         <div className="mt-7 overflow-x-auto">
-          <CategoryTable />
+          <CategoryTable data={data}/>
         </div>
       </div>
     </Container>
