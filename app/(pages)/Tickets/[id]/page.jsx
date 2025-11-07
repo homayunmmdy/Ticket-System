@@ -1,5 +1,6 @@
 "use client";
 
+import Container from "@/app/components/Container";
 import FormattedTimestamp from "@/app/components/FormattedTimestamp";
 import PriorityDisplay from "@/app/components/PriorityDisplay";
 import ProgressDisplay from "@/app/components/ProgressDisplay";
@@ -25,14 +26,14 @@ const SingleTicketPage = () => {
   return (
     <>
       <div className="flex flex-col">
-        <div className="bg-base-200 py-8">
-          <div className="container mx-auto px-4">
+        <div className="bg-base-300 shadow-2xl py-8">
+          <Container>
             <h1 className="text-4xl text-center font-extrabold bg-clip-text text-transparent bg-linear-to-r from-amber-500 to-red-400">{ticket.title}</h1>
             <p className="text-xs  text-center my-3"><FormattedTimestamp timestamp={ticket.createdAt} options={options} /></p>
-          </div>
+          </Container>
         </div>
         <div className="py-8">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row">
+          <Container className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/4 px-4">
               <div className="flex flex-col gap-4 justify-center items-center mb-2">
                 <Link className="btn btn-outline btn-error" href="/Tickets">Back Tickets</Link>
@@ -55,7 +56,7 @@ const SingleTicketPage = () => {
               </p>
             </div>
 
-          </div>
+          </Container>
         </div>
       </div>
     </>

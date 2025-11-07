@@ -12,7 +12,7 @@ useEffect(() => {
     const fetchTicket = async () => {
       try {
         const response = await axios.get(`/api/Tickets/${id}`);
-        setTicket(response.data.data);
+        setTicket(response.data.document);
       } catch (error) {
         console.error("Error fetching ticket:", error);
       }
