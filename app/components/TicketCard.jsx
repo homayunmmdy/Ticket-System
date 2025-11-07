@@ -16,7 +16,7 @@ const TicketCard = ({ ticket }) => {
     hour12: true,
   };
 
-  const ticketLink = `/TicketPage/${ticket._id}`
+  const ticketLink = `/Tickets/${ticket._id}`
 
   return (
     <div className="group relative bg-base-300 rounded-2xl shadow-2xl p-4 mb-4 md:mb-0  border border-red-700/50 hover:border-red-500/50 transition-all duration-300 hover:shadow-amber-500/20 hover:shadow-2xl hover:-translate-y-1">

@@ -1,6 +1,6 @@
 export const TicketCash = [
   {
-    id: 1,
+    _id: '690d18de03c38862ac75eb22',
     title: "Critical Login Issue",
     description: "Users unable to login with correct credentials",
     body: "Multiple users reported being unable to access their accounts despite entering correct login information. The issue seems to be related to session management.",
@@ -15,7 +15,7 @@ export const TicketCash = [
     updatedAt: "2024-01-16T14:20:00.000Z",
   },
   {
-    id: 2,
+    _id: '2',
     title: "Implement Dark Mode",
     description: "Add dark mode theme to application",
     body: "Users have requested a dark mode option for better nighttime usage. This requires updating all UI components and adding theme switching functionality.",
@@ -30,7 +30,7 @@ export const TicketCash = [
     updatedAt: "2024-01-18T16:30:00.000Z",
   },
   {
-    id: 3,
+    _id: '3',
     title: "Update API Documentation",
     description: "Refresh API documentation with new endpoints",
     body: "Several new API endpoints have been added recently and need to be properly documented with examples and usage guidelines.",
@@ -45,7 +45,7 @@ export const TicketCash = [
     updatedAt: "2024-01-17T11:45:00.000Z",
   },
   {
-    id: 4,
+    _id: '4',
     title: "Mobile App Crash on Startup",
     description: "App crashes immediately after launch on iOS 17",
     body: "Users with iOS 17 devices report the app crashes immediately after the splash screen. This appears to be related to the new privacy permissions.",
@@ -60,7 +60,7 @@ export const TicketCash = [
     updatedAt: "2024-01-17T16:45:00.000Z",
   },
   {
-    id: 5,
+    _id: '5',
     title: "Payment Gateway Integration",
     description: "Integrate new payment provider",
     body: "Add support for Stripe payment processing to handle credit card transactions and subscription management.",
@@ -75,7 +75,7 @@ export const TicketCash = [
     updatedAt: "2024-01-12T17:30:00.000Z",
   },
   {
-    id: 6,
+    _id: '6',
     title: "Database Query Optimization",
     description: "Slow report generation needs optimization",
     body: "Monthly report generation is taking too long. Need to optimize database queries and add proper indexing.",
@@ -90,7 +90,7 @@ export const TicketCash = [
     updatedAt: "2024-01-17T09:30:00.000Z",
   },
   {
-    id: 7,
+    _id: '7',
     title: "User Registration Support",
     description: "Assist user with account creation issues",
     body: "User cannot complete registration process due to email verification problems. Need to investigate and provide solution.",
@@ -105,7 +105,7 @@ export const TicketCash = [
     updatedAt: "2024-01-16T16:50:00.000Z",
   },
   {
-    id: 8,
+    _id: '8',
     title: "Dashboard UI Refresh",
     description: "Modernize dashboard interface",
     body: "Update the dashboard with new design system components, improve responsiveness and add new widget options.",
@@ -120,7 +120,7 @@ export const TicketCash = [
     updatedAt: "2024-01-18T14:20:00.000Z",
   },
   {
-    id: 9,
+    _id: '9',
     title: "Security Vulnerability Patch",
     description: "Address security issue in authentication",
     body: "Security audit revealed potential vulnerability in password reset functionality. Immediate patch required.",
@@ -135,7 +135,7 @@ export const TicketCash = [
     updatedAt: "2024-01-12T14:15:00.000Z",
   },
   {
-    id: 10,
+    _id: '10',
     title: "User Guide Updates",
     description: "Update user documentation for new features",
     body: "Several new features have been released recently. Need to update the user guide and help documentation accordingly.",

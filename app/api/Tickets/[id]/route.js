@@ -1,11 +1,14 @@
+import { TicketCash } from "@/app/cash/TicketCash";
+import TicketModel from "@/app/models/Ticket";
 import Ticket from "@/app/models/Ticket";
+import RequestHandler from "@/app/util/RequestHandler";
 import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
   const { id } = params;
 
-  const foundTicket = await Ticket.findOne({ _id: id });
-  return NextResponse.json({ foundTicket }, { status: 200 });
+   const handler = new RequestHandler(TicketModel, TicketCash);
+   return handler.Get(id);
 }
 
 export async function PUT(req, { params }) {
