@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang={SiteConfig.lang} dir={SiteConfig.dir} data-theme="cupcake">
         <body className={inter.className}>
-          <div className="flex flex-col ">
+          <div className="flex flex-col pb-20 md:pb-0">
             <Nav />
             <div className="grow overflow-y-auto bg-page text-default-text">
               {children}

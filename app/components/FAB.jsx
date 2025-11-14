@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const FAB = () => {
     return (
-        <div className="fab fab-flower">
+        <div className="fab bottom-12 fab-flower">
             {/* a focusable div with tabIndex is necessary to work on all browsers. role="button" is necessary for accessibility */}
             <div tabIndex={0} role="button" className="btn btn-circle btn-lg">
                 <svg
