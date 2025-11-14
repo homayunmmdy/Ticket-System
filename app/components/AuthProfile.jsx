@@ -6,8 +6,8 @@ const AuthProfile = ({ pathname }) => {
 
     return !user ? (
         <div className="join join-vertical lg:join-horizontal">
-            <Link href="/sign-in" className={`${pathname === '/sign-in' ? '' : 'btn-outline'} hidden md:block btn btn-error rounded-l-4xl p-3 join-item`}>Login</Link>
-            <Link href="/sign-up" className={`${pathname === '/sign-up' ? '' : 'btn-outline'}  btn btn-outline btn-error rounded-full md:rounded-r-4xl p-3 join-item`}>sign up</Link>
+            <Link href="/sign-in" className={`${pathname === '/sign-in' ? '' : 'btn-outline'} hidden lg:flex btn btn-error rounded-l-4xl p-3 join-item`}>Login</Link>
+            <Link href="/sign-up" className={`${pathname === '/sign-up' ? '' : 'btn-outline'} btn btn-outline btn-error rounded-full lg:rounded-l-4xl p-3 join-item`}>sign up</Link>
         </div>
     ) : (
             <Link href="/user-profile">

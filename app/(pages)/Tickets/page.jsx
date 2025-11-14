@@ -43,7 +43,7 @@ const Tickets = () => {
     if (filterType === "status") {
       filtered = value === "all" ? tickets : tickets.filter((ticket) => ticket.status === value);
     } else if (filterType === "priority") {
-      filtered = tickets.filter((ticket) => ticket.priority === parseInt(value));
+      filtered = value === "All" ? tickets : tickets.filter((ticket) => ticket.priority === parseInt(value));
     } else if (filterType === "category") {
       filtered = value === "all" ? tickets : tickets.filter((ticket) => ticket.category === value);
     }
@@ -62,11 +62,11 @@ const Tickets = () => {
     <Container className="py-5 md:py-9">
       <ToastContainer />
       <div>
-        <div className="mb-4 grid grid-cols-1 gap-4 md:gap-9 sm:grid-cols-2 md:grid-cols-3">
-          <div className="flex flex-col gap-3">
+        <div className="mb-4 grid grid-cols-1 gap-4 md:gap-6 sm:grid-cols-2 md:grid-cols-3">
+          <div className="flex flex-col gap-2">
             <span className="mr-2">Filter by Status:</span>
             <select
-              className="select select-error w-full rounded-sm border border-gray-300 p-2"
+              className="select select-error w-full rounded-xl   p-2"
               onChange={(e) => handleFilterChange("status", e.target.value)}
             >
               <option value="all">All</option>
@@ -76,23 +76,23 @@ const Tickets = () => {
               <option value="done">Done</option>
             </select>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2">
             <span className="mr-2">Filter by Priority:</span>
             <select
-              className="select select-error w-full rounded-sm border border-gray-300 p-2"
+              className="select select-error w-full rounded-xl p-2"
               onChange={(e) => handleFilterChange("priority", e.target.value)}
             >
-              {[1, 2, 3, 4, 5].map((priority) => (
-                <option key={priority} value={priority}>
+              {['All',1, 2, 3, 4, 5].map((priority) => (
+                <option  key={priority} value={priority}>
                   {priority}
                 </option>
               ))}
             </select>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2">
             <span className="mr-2">Filter by Category:</span>
             <select
-              className="select select-error w-full rounded-sm border border-gray-300 p-2"
+              className="select select-error w-full rounded-xl p-2"
               onChange={(e) => handleFilterChange("category", e.target.value)}
             >
               <option value="all">All</option>
