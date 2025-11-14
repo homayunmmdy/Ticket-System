@@ -5,6 +5,7 @@ import Dock from "./components/Dock";
 import Footer from "./components/Footer";
 import SiteConfig from "./config/site";
 import "./globals.css";
+import FAB from "./components/FAB";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
             <div className="grow overflow-y-auto bg-page text-default-text">
               {children}
             </div>
+            <FAB />
             <Dock />
             <Footer />
           </div>

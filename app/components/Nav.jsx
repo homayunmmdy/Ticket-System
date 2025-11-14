@@ -33,7 +33,6 @@ const Nav = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
-          <Link className="btn btn-outline rounded-full btn-error hidden sm:flex" href="/TicketPage/new">New Tickets</Link>
           <ThemeToggle />
         </div>
       </div>
