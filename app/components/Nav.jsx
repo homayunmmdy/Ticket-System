@@ -33,7 +33,7 @@ const Nav = () => {
             })}
           </ul>
         </div>
-        <div className="navbar-end gap-2">
+        <div className="navbar-end items-center gap-2">
           <AuthProfile pathname={pathname}/>
           <ThemeToggle />
         </div>
