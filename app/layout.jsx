@@ -1,9 +1,10 @@
 import Nav from "@/app/components/Nav";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
+import Dock from "./components/Dock";
 import Footer from "./components/Footer";
 import SiteConfig from "./config/site";
 import "./globals.css";
-import Dock from "./components/Dock";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -13,17 +14,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang={SiteConfig.lang} dir={SiteConfig.dir} data-theme="cupcake">
-      <body className={inter.className}>
-        <div className="flex flex-col ">
-          <Nav />
-          <div className="grow overflow-y-auto bg-page text-default-text">
-            {children}
+    <ClerkProvider>
+      <html lang={SiteConfig.lang} dir={SiteConfig.dir} data-theme="cupcake">
+        <body className={inter.className}>
+          <div className="flex flex-col ">
+            <Nav />
+            <div className="grow overflow-y-auto bg-page text-default-text">
+              {children}
+            </div>
+            <Dock />
+            <Footer />
           </div>
-          <Dock />
-          <Footer />
-        </div>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
