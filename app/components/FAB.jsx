@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { FaTag } from "react-icons/fa"
 
 const FAB = () => {
     return (
@@ -37,23 +38,12 @@ const FAB = () => {
             </button>
 
             {/* buttons that show up when FAB is open */}
-            {/* <button className="btn btn-circle btn-lg">
-                <svg
-                    aria-label="New camera photo"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    className="size-6"
-                >
-                    <path d="M9.5 8.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                    <path
-                        fillRule="evenodd"
-                        d="M2.5 5A1.5 1.5 0 0 0 1 6.5v5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 13.5 5h-.879a1.5 1.5 0 0 1-1.06-.44l-1.122-1.12A1.5 1.5 0 0 0 9.38 3H6.62a1.5 1.5 0 0 0-1.06.44L4.439 4.56A1.5 1.5 0 0 1 3.38 5H2.5ZM11 8.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                        clipRule="evenodd"
-                    />
-                </svg>
+            <button className="btn btn-circle hover:btn-error btn-lg">
+                <Link href="/Setting#categories">
+                    <FaTag className="w-4 h-4" />
+                </Link>
             </button>
-            <button className="btn btn-circle btn-lg">
+            {/*  <button className="btn btn-circle btn-lg">
                 <svg
                     aria-label="New poll"
                     xmlns="http://www.w3.org/2000/svg"

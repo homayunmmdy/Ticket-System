@@ -51,7 +51,7 @@ const Category = () => {
   return (
     <Container>
       <ToastContainer />
-      <div className="my-4 rounded-xl border-2 border-base-300 px-4 py-4 md:px-8 md:py-7 ">
+      <div id="categories" className="my-4 rounded-xl border-2 border-base-300 px-4 py-4 md:px-8 md:py-7 ">
         <div className="items-center justify-between sm:flex">
           <div className="flex items-center">
             <div className="rounded-full focus:bg-red-50 focus:outline-hidden focus:ring-2 focus:ring-red-800" href=" javascript:void(0)">
