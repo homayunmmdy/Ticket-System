@@ -93,7 +93,7 @@ const EditTicketForm = ({ ticket }) => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(`/api/Category`);
-        setCategories(response.data.categories);
+        setCategories(response.data.data);
       } catch (error) {
         toast.error("Error fetching categories:", error);
         console.error("Error fetching categories:", error);
